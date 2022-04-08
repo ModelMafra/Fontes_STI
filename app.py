@@ -21,13 +21,19 @@ colors = {
 fig = px.sunburst(df, path=['Fonte', 'Área', 'Produto'],
                   values='Qt indicadores (Outputs)',
                   labels="Produtos",
-                  color="Área",
-                  color_discrete_map={"Projetos": "#2bc470",
-                                      "Pessoal": "#f2e824",
-                                      "Operações": "#ed892b",
-                                      "Financeira": "#11a10a",
-                                      "Estatistica": "#d18686"},
-                  height=950
+                  color="Fonte",
+                  color_discrete_map={"EPM": "#9DB3A0",
+                                      "Access": "#657367",
+                                      "SIEE": "#D5F2DA",
+                                      "Excel": "#E0FFE5",
+                                      "SIIP": "#BFD9C3",
+                                      "Edoclink": "#CFF9EE",
+                                      "SIGAI": "#B6DBC7",
+                                      "Google Analytics": "#D5F2DA",
+                                      "SIMPPO": "#BBDBB6",
+                                      "VagasNaPraia": "#E4F9CF"},
+                  height=950,
+
                   )
 # ------------------------------------------------------------------------------
 # App layout
@@ -75,7 +81,7 @@ def update_graph(years_chosen):
     scatterplot = px.scatter(
         data_frame=dff,
         x="Data",
-        y="Fonte",
+        y='Fonte',
         size="Qt indicadores (Outputs)",
         color="Área",
         hover_data=['Produto'],
@@ -95,7 +101,7 @@ def update_graph(years_chosen):
                               yaxis = dict(title=dict(text="", font=dict(size=20), font_family="Arial")),
                               )
     scatterplot.update_xaxes(gridcolor="#e3dfde")
-    scatterplot.update_yaxes(gridcolor="#e3dfde")
+    scatterplot.update_yaxes(gridcolor="#e3dfde",categoryorder='category descending')
     scatterplot.update_traces(marker_sizeref=0.01)
     scatterplot.update_xaxes(tickfont=dict(color='#38383b', size=16))
     scatterplot.update_yaxes(tickfont=dict(color='#38383b', size=16))
