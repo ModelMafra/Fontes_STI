@@ -55,8 +55,9 @@ app.layout = html.Div([
             step=None)
     ], style = {"width": "70%", "position":"absolute",
                  "left":"15%"})
-
     ]),
+    html.Br(),
+    html.Br(),
     html.Div([
     dcc.Graph(id="sunburst",
               figure=fig),
