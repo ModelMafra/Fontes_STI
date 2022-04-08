@@ -62,7 +62,7 @@ app.layout = html.Div([
 
     html.Div([
         dcc.Tabs(id='tabs-example-1', value='tab-1', children=[
-        dcc.Tab(label='Fontes por data',
+        dcc.Tab(label='Evolução dos Produtos BI',
                 value='tab-1',
                 style={'font-size': '140%', 'font-family': 'Arial', 'color': '#bbbdbf'},
                 selected_style={'font-size': '140%', 'font-family': 'Arial'}),
