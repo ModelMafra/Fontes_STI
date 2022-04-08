@@ -1,4 +1,4 @@
-import pandas as pd
+mport pandas as pd
 import plotly.express as px  # (version 4.7.0 or higher)
 import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output  # pip install dash (version 2.0.0 or higher)
@@ -89,11 +89,11 @@ def update_graph(years_chosen):
         height=650,
         # width=1250,
         color_discrete_map={
-            "Projetos": "#2bc470",
-            "Pessoal": "#f2e824",
-            "Operações": "#ed892b",
-            "Financeira": "#11a10a",
-            "Estatistica": "#d18686"}
+            "Projetos": "#9DB3A0",
+            "Pessoal": "#E0D779",
+            "Operações": "#719DDE",
+            "Financeira": "#A7DEA6",
+            "Estatistica": "#D7DBB6"}
             )
 
     scatterplot.update_layout(plot_bgcolor="#FFFFFF",
