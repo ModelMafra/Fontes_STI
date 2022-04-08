@@ -72,7 +72,7 @@ def update_graph(years_chosen):
             "Pessoal": "#f2e824",
             "Operações": "#ed892b",
             "Financeira": "#11a10a",
-            "Estatistica": "#c9352a"}
+            "Estatistica": "#fa7575"}
             )
 
     scatterplot.update_layout(plot_bgcolor="#FFFFFF",
