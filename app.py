@@ -85,7 +85,7 @@ def update_graph(years_chosen):
     scatterplot.update_layout(margin_pad=20)
     scatterplot.update_xaxes(tickfont=dict(color='#38383b', size=16))
     scatterplot.update_yaxes(tickfont=dict(color='#38383b', size=16))
-
+    scatterplot.update_layout(legend=dict(font_size=20))
 
     return (scatterplot)
 
