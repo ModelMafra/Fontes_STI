@@ -28,7 +28,7 @@ fig = px.sunburst(df, path=['Fonte', 'Área', 'Produto'],
                       "Operações": "#ed892b",
                       "Financeira": "#11a10a",
                       "Estatistica": "#c9352a"},
-                  height=750
+                  height=950
                   )
 # ------------------------------------------------------------------------------
 # App layout
