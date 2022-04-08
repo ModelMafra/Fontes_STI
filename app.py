@@ -42,7 +42,7 @@ app.layout = html.Div([
 
     html.Br(),
     html.Div([
-    dcc.Graph(id="scatter-plot", style={'padding-left':'3%', 'padding-right':'3%'})
+    dcc.Graph(id="scatter-plot"), #style={'padding-left':'3%', 'padding-right':'3%'})
     ]),
     html.Br(),
 
@@ -82,7 +82,7 @@ def update_graph(years_chosen):
         hover_data=['Produto'],
         #text="Produto",
         height=650,
-        width=1250,
+#         width=1250,
         color_discrete_map={
             "Projetos": "#2bc470",
             "Pessoal": "#f2e824",
