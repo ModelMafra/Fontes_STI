@@ -42,7 +42,7 @@ app.layout = html.Div([
 
     html.Br(),
     html.Div([
-    dcc.Graph(id="scatter-plot"),
+    dcc.Graph(id="scatter-plot", style={'padding-left':'3%', 'padding-right':'3%'})
     ]),
     html.Br(),
 
@@ -55,6 +55,7 @@ app.layout = html.Div([
             step=None)
     ], style = {"width": "70%", "position":"absolute",
                  "left":"15%"})
+
     ]),
     html.Br(),
     html.Br(),
@@ -80,7 +81,8 @@ def update_graph(years_chosen):
         color="Área",
         hover_data=['Produto'],
         #text="Produto",
-        height=550,
+        height=650,
+        width=1250,
         color_discrete_map={
             "Projetos": "#2bc470",
             "Pessoal": "#f2e824",
@@ -96,11 +98,10 @@ def update_graph(years_chosen):
     scatterplot.update_xaxes(gridcolor="#e3dfde")
     scatterplot.update_yaxes(gridcolor="#e3dfde")
     scatterplot.update_traces(marker_sizeref=0.01)
-    scatterplot.update_layout(margin_pad=20)
     scatterplot.update_xaxes(tickfont=dict(color='#38383b', size=16))
     scatterplot.update_yaxes(tickfont=dict(color='#38383b', size=16))
     scatterplot.update_layout(legend=dict(font_size=20))
-
+    scatterplot.update_layout(margin_pad=20)
     return (scatterplot)
 
 # ------------------------------------------------------------------------------
