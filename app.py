@@ -44,32 +44,40 @@ app.layout = html.Div([
                        'text-align': 'center',
                       'color': colors['text'],
                        'font-family': 'Arial'}),
-
-    html.Br(),
-    html.Div([
-    dcc.Graph(id="scatter-plot"), #style={'padding-left':'3%', 'padding-right':'3%'})
-    ]),
     html.Br(),
 
     html.Div([
-        dcc.RangeSlider(id='year-slider',
-            min=2010,
-            max=2022,
-            value=[2010,2022],
-            marks=mark_values,
-            step=None)
-    ], style = {"width": "70%", "position":"absolute",
-                 "left":"15%"})
+        dcc.Tabs(id='tabs-example-1', value='tab-1', children=[
+        dcc.Tab(label='Fontes por data', value='tab-1'),
+        dcc.Tab(label='Fontes por àrea e Produto', value='tab-2'),
+            ])
+        ]),
+    html.Div(id='tabs-example-content-1')
+    ]),
 
-    ]),
-    html.Br(),
-    html.Br(),
-    html.Div([
-    dcc.Graph(id="sunburst",
-              figure=fig),
-    ]),
 ])
-    #dcc.RangeSlider(2009, 2023, 1, value=[2009, 2023], id='my-range-slider'),
+
+@app.callback(
+    Output('tabs-example-content-1', 'children'),
+    Input('tabs-example-1', 'value')
+)
+def render_content(tab):
+    if tab == 'tab-1':
+        return html.Div([
+            html.Div([dcc.Graph(id="scatter-plot")]),
+            html.Div([
+                dcc.RangeSlider(id='year-slider',
+                                min=2010,
+                                max=2022,
+                                value=[2010, 2022],
+                                marks=mark_values,
+                                step=None)
+            ], style={"width": "70%", "position": "absolute",
+                      "left": "15%"})
+            ])
+    elif tab == 'tab-2':
+          return html.Div([dcc.Graph(id="sunburst", figure=fig)])
+
 @app.callback(
     Output('scatter-plot','figure'),
     [Input('year-slider','value')]
