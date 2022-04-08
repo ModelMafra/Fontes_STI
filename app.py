@@ -22,12 +22,11 @@ fig = px.sunburst(df, path=['Fonte', 'Área', 'Produto'],
                   values='Qt indicadores (Outputs)',
                   labels="Produtos",
                   color="Área",
-                  color_discrete_map={
-                      "Projetos": "#2bc470",
-                      "Pessoal": "#f2e824",
-                      "Operações": "#ed892b",
-                      "Financeira": "#11a10a",
-                      "Estatistica": "#c9352a"},
+                  color_discrete_map={"Projetos": "#2bc470",
+                                      "Pessoal": "#f2e824",
+                                      "Operações": "#ed892b",
+                                      "Financeira": "#11a10a",
+                                      "Estatistica": "#d18686"},
                   height=950
                   )
 # ------------------------------------------------------------------------------
@@ -82,13 +81,13 @@ def update_graph(years_chosen):
         hover_data=['Produto'],
         #text="Produto",
         height=650,
-#         width=1250,
+        # width=1250,
         color_discrete_map={
             "Projetos": "#2bc470",
             "Pessoal": "#f2e824",
             "Operações": "#ed892b",
             "Financeira": "#11a10a",
-            "Estatistica": "#fa7575"}
+            "Estatistica": "#d18686"}
             )
 
     scatterplot.update_layout(plot_bgcolor="#FFFFFF",
