@@ -17,6 +17,19 @@ colors = {
     'background': '#ffffff',
     'text': '#000000'
     }
+
+fig = px.sunburst(df, path=['Fonte', 'Área', 'Produto'],
+                  values='Qt indicadores (Outputs)',
+                  labels="Produtos",
+                  color="Área",
+                  color_discrete_map={
+                      "Projetos": "#2bc470",
+                      "Pessoal": "#f2e824",
+                      "Operações": "#ed892b",
+                      "Financeira": "#11a10a",
+                      "Estatistica": "#c9352a"},
+                  height=750
+                  )
 # ------------------------------------------------------------------------------
 # App layout
 app.layout = html.Div([
@@ -26,12 +39,8 @@ app.layout = html.Div([
                        'text-align': 'center',
                       'color': colors['text'],
                        'font-family': 'Arial'}),
-    # html.Br(),
-    # html.H2("Scatter plot Fontes de informação", style={'text-align': 'center'})
-    #     ]),
 
     html.Br(),
-
     html.Div([
     dcc.Graph(id="scatter-plot"),
     ]),
@@ -47,7 +56,11 @@ app.layout = html.Div([
     ], style = {"width": "70%", "position":"absolute",
                  "left":"15%"})
 
-    ])
+    ]),
+    html.Div([
+    dcc.Graph(id="sunburst",
+              figure=fig),
+    ]),
 ])
     #dcc.RangeSlider(2009, 2023, 1, value=[2009, 2023], id='my-range-slider'),
 @app.callback(
@@ -88,7 +101,6 @@ def update_graph(years_chosen):
     scatterplot.update_layout(legend=dict(font_size=20))
 
     return (scatterplot)
-
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
